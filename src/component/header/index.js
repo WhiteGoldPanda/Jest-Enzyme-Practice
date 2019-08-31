@@ -3,10 +3,10 @@ import './styless.scss'
 import Logo from '../../img/beats.png'
 const Header = (props) => {
     return (
-        <header className="headerComponent">
+        <header data-test="headerComponent">
            <div className="wrap">
                <div className="logo">
-                    <img className="logoIMG" src={Logo} alt='logo'/>
+                    <img data-test="logoIMG" src={Logo} alt='logo'/>
                </div>
            </div>
         </header>
