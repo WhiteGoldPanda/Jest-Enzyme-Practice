@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Headline from './index';
 
 import { findByTestAtrr } from '../../../Utils';
-import { exportAllDeclaration } from '@babel/types';
+
 
 
 const setUp = (props={}) => {
@@ -22,15 +22,28 @@ describe('Headline Component', () => {
             wrapper = setUp(props);
         });
         it('Should render without errors', () => {
-            const component = findByTestAtrr(wrapper, 'HeadlineComponent')
-            exportAllDeclaration(component.length).toBe(1);
-        })
+            const component = findByTestAtrr(wrapper, 'HeadlineComponent');
+            expect(component.length).toBe(1);
+        });
+        it('Should render a H1', () => {
+            const h1 = findByTestAtrr(wrapper, 'header');
+            expect(h1.length).toBe(1);
+        });
+        it('Should render a desc', () => {
+            const desc = findByTestAtrr(wrapper, 'desc');
+            expect(desc.length).toBe(1);
+        });
     });
 
     describe('Have NO props', () => {
         let wrapper;
         beforeEach(() => {
             wrapper = setUp();
+        });
+
+        it('Should not render', () => {
+            const component = findByTestAtrr(wrapper, 'HeadlineComponent');
+            expect(component.length).toBe(0);
         });
 
     });
